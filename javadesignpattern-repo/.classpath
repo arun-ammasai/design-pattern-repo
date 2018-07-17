@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Arun/Desktop/jars/reflections-0.9.9-rc1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Arun/Desktop/jars/jar_files/openjfx-78-backport-1.8.0-ea-b96.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Arun/Desktop/jars/javatuples-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Arun/Desktop/jars/com.google.collections.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Arun/Desktop/jars/javassist.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
