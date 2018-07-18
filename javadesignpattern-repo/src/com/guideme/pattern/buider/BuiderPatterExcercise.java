@@ -1,6 +1,6 @@
 package com.guideme.pattern.buider;
 
-public class FluentMultiBuilder {
+public class BuiderPatterExcercise {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

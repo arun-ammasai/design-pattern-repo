@@ -15,46 +15,46 @@ import java.util.stream.Stream;
  */
 public class OpenClosePrincipleExcercise {
 	public static void main(String[] args) {
-		Product apple = new Product("Apple", Color.BLUE, Size.MEDIUM);
-		Product samsung = new Product("Samsung", Color.BLUE, Size.LARGE);
-		Product nokia = new Product("Nokia", Color.GREEN, Size.LARGE);
-		List<Product> products = new ArrayList<Product>();
+		Product1 apple = new Product1("Apple", Color1.BLUE, Size1.MEDIUM);
+		Product1 samsung = new Product1("Samsung", Color1.BLUE, Size1.LARGE);
+		Product1 nokia = new Product1("Nokia", Color1.GREEN, Size1.LARGE);
+		List<Product1> products = new ArrayList<Product1>();
 		products.add(apple);
 		products.add(samsung);
 		products.add(nokia);
 
-		BetterFilter bf = new BetterFilter();
-		bf.filter(products, new ColorSpecification(Color.BLUE))
+		BetterFilter1 bf = new BetterFilter1();
+		bf.filter(products, new ColorSpecification1(Color1.BLUE))
 				.forEach(p -> System.out.println("This Product :" + p.name + " is Blue"));
-		bf.filter(products, new SizeSpecification(Size.LARGE))
+		bf.filter(products, new SizeSpecification1(Size1.LARGE))
 				.forEach(p -> System.out.println("This Product :" + p.name + " is Large"));
 
 		bf.filter(products,
-				new AndSpecification<>(new ColorSpecification(Color.GREEN), new SizeSpecification(Size.LARGE)))
+				new AndSpecification1<>(new ColorSpecification1(Color1.GREEN), new SizeSpecification1(Size1.LARGE)))
 				.forEach(p -> System.out.println("This Product green :" + p.name + " and Large"));
 	}
 }
 
-enum Color {
+enum Color1 {
 	RED, GREEN, BLUE;
 }
 
-enum Size {
+enum Size1 {
 	SMALL, MEDIUM, LARGE;
 }
 
-interface Specification<T> {
+interface Specification1<T> {
 	boolean isSatisfied(T item);
 }
 
-interface Filter<T> {
-	Stream<T> filter(List<T> items, Specification<T> spec);
+interface Filter1<T> {
+	Stream<T> filter(List<T> items, Specification1<T> spec);
 }
 
-class AndSpecification<T> implements Specification<T> {
-	Specification<T> first, second;
+class AndSpecification1<T> implements Specification1<T> {
+	Specification1<T> first, second;
 
-	public AndSpecification(Specification<T> first, Specification<T> second) {
+	public AndSpecification1(Specification1<T> first, Specification1<T> second) {
 		super();
 		this.first = first;
 		this.second = second;
@@ -68,50 +68,50 @@ class AndSpecification<T> implements Specification<T> {
 
 }
 
-class BetterFilter implements Filter<Product> {
+class BetterFilter1 implements Filter1<Product1> {
 
 	@Override
-	public Stream<Product> filter(List<Product> items, Specification<Product> spec) {
+	public Stream<Product1> filter(List<Product1> items, Specification1<Product1> spec) {
 		return items.stream().filter(p -> spec.isSatisfied(p));
 	}
 
 }
 
-class ColorSpecification implements Specification<Product> {
-	Color color;
+class ColorSpecification1 implements Specification1<Product1> {
+	Color1 color;
 
-	public ColorSpecification(Color color) {
+	public ColorSpecification1(Color1 color) {
 		this.color = color;
 	}
 
 	@Override
-	public boolean isSatisfied(Product item) {
+	public boolean isSatisfied(Product1 item) {
 		return item.color == color;
 	}
 }
 
-class SizeSpecification implements Specification<Product> {
-	Size size;
+class SizeSpecification1 implements Specification1<Product1> {
+	Size1 size;
 
-	public SizeSpecification(Size size) {
+	public SizeSpecification1(Size1 size) {
 		super();
 		this.size = size;
 	}
 
 	@Override
-	public boolean isSatisfied(Product item) {
+	public boolean isSatisfied(Product1 item) {
 		// TODO Auto-generated method stub
 		return item.size == size;
 	}
 
 }
 
-class Product {
+class Product1 {
 	public String name;
-	public Color color;
-	public Size size;
+	public Color1 color;
+	public Size1 size;
 
-	public Product(String name, Color color, Size size) {
+	public Product1(String name, Color1 color, Size1 size) {
 		super();
 		this.name = name;
 		this.color = color;
